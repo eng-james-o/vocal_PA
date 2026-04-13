@@ -8,8 +8,8 @@
 - [x] Basic Movable-Do logic (`core/note_converter.py`)
 - [x] Statistical filtering for range tracking (`core/range_tracker.py`)
 - [x] Modern PySide6/QML GUI bridge and layout
-- [ ] Add microphone gain indicator to UI
-- [ ] Implement manual tonic entry fallback
+- [x] Add microphone gain indicator to UI
+- [x] Implement manual tonic entry fallback
 
 ## Upcoming: v0.2.0 (Song Library)
 

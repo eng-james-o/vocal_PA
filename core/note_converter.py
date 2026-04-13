@@ -17,8 +17,21 @@ class NoteConverter:
         """
         Sets the reference frequency for movable-do solfa (DOH).
         """
-        self.doh_freq = frequency
-        self.doh_midi = librosa.hz_to_midi(frequency)
+        self.doh_freq = float(frequency)
+        self.doh_midi = float(librosa.hz_to_midi(self.doh_freq))
+
+    def set_tonic_by_name(self, note_name: str) -> bool:
+        """
+        Sets the tonic using a note name (e.g., "C4", "A#2").
+        Returns True if successful, False otherwise.
+        """
+        try:
+            freq = librosa.note_to_hz(note_name)
+            self.set_tonic(float(freq))
+            return True
+        except Exception as e:
+            print(f"NoteConverter: Error setting tonic by name {note_name}: {e}")
+            return False
 
     def hz_to_midi(self, frequency: float) -> float:
         """Convert Hz to MIDI note number."""

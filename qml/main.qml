@@ -76,6 +76,7 @@ Window {
                             color: "#3b82f6"
                             Layout.alignment: Qt.AlignHCenter
                         }
+
                         
                         Label {
                             text: core.currentNote || "Silence"
@@ -83,6 +84,25 @@ Window {
                             font.weight: Font.Medium
                             color: "#94a3b8"
                             Layout.alignment: Qt.AlignHCenter
+                        }
+
+                        // Gain Meter
+                        RowLayout {
+                            Layout.preferredWidth: 200
+                            Layout.alignment: Qt.AlignHCenter
+                            spacing: 10
+                            Rectangle {
+                                Layout.fillWidth: true
+                                height: 4
+                                color: "#334155"
+                                radius: 2
+                                Rectangle {
+                                    width: parent.width * Math.min(core.currentGain * 5, 1.0)
+                                    height: parent.height
+                                    color: core.currentGain > 0.2 ? "#ef4444" : "#22c55e"
+                                    radius: 2
+                                }
+                            }
                         }
                     }
                 }
@@ -97,6 +117,33 @@ Window {
                         implicitHeight: 44
                         radius: 8
                         color: parent.enabled ? "#6366f1" : "#334155"
+                    }
+                }
+
+
+                RowLayout {
+                    Layout.alignment: Qt.AlignHCenter
+                    spacing: 10
+                    TextField {
+                        id: tonicInput
+                        placeholderText: "e.g., C4"
+                        width: 80
+                        background: Rectangle {
+                            color: "#1e293b"
+                            border.color: "#334155"
+                            radius: 4
+                        }
+                        color: "white"
+                    }
+                    Button {
+                        text: "Set Tonic"
+                        onClicked: core.setTonicByName(tonicInput.text)
+                        background: Rectangle {
+                            implicitWidth: 100
+                            implicitHeight: 36
+                            radius: 8
+                            color: parent.pressed ? "#1e293b" : "#3b82f6"
+                        }
                     }
                 }
             }
