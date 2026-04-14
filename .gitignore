@@ -5,9 +5,10 @@
 __pycache__/
 *.pyc
 
-# IDE files
+# IDE and Agent files
 .vscode/
 .idea/
+.codex
 
 # Build files
 build/
