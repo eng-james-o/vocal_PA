@@ -1,0 +1,5 @@
+module components
+GainMeter 1.0 GainMeter.qml
+PitchDisplay 1.0 PitchDisplay.qml
+RangeDisplay 1.0 RangeDisplay.qml
+TonicControls 1.0 TonicControls.qml

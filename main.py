@@ -5,8 +5,7 @@ from PySide6.QtQml import QQmlApplicationEngine
 from core.bridge import CoreBridge
 
 def main():
-    # Set up styling environment if needed
-    # os.environ["QT_QUICK_CONTROLS_STYLE"] = "Basic"
+    os.environ.setdefault("QT_QUICK_CONTROLS_STYLE", "Basic")
 
     app = QGuiApplication(sys.argv)
     app.setApplicationName("Vocal Range Analyzer")
@@ -17,12 +16,14 @@ def main():
 
     # Create the QML engine
     engine = QQmlApplicationEngine()
+    engine.addImportPath(os.path.dirname(__file__))
+    engine.addImportPath(os.path.join(os.path.dirname(__file__), "ui"))
 
     # Expose the bridge to QML as a context property named 'core'
     engine.rootContext().setContextProperty("core", bridge)
 
     # Resolve the path to the main QML file
-    qml_path = os.path.join(os.path.dirname(__file__), "qml", "main.qml")
+    qml_path = os.path.join(os.path.dirname(__file__), "ui", "main.qml")
     
     # Load the QML file
     engine.load(qml_path)
