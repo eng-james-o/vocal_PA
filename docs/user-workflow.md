@@ -1,5 +1,8 @@
 # User Workflows
 
+*Author: eng-james-o*
+*Last Updated: 2026-04-10*
+
 This guide walks you through the primary use cases of the Vocal Range Analyzer.
 
 ## 1. Initial Calibration (Set Your DOH)

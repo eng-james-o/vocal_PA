@@ -3,7 +3,7 @@
 
 site_name: Vocal Range Analyzer
 site_description: A powerful Python application for vocalists to scientifically measure their vocal range
-site_author: Vocal Range Analyzer Contributors
+site_author: eng-james-o
 site_url: https://github.com/eng-james-o/vocal_PA
 
 # Repository
@@ -121,7 +121,7 @@ markdown_extensions:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/eng-james-o/vocal_PA
+      link: https://github.com/eng-james-o
     - icon: fontawesome/brands/python
       link: https://www.python.org/
     - icon: fontawesome/brands/qt
@@ -129,6 +129,8 @@ extra:
 
   version:
     provider: mike
+  
+  copyright: Copyright &copy; 2026 eng-james-o
 
 # Build
 use_directory_urls: true

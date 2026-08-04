@@ -155,7 +155,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## 📊 Statistics
+## 📊 Release Statistics
+
+### Code Metrics
+
+```mermaid
+barChart
+    title Code Metrics by Version
+    x: Version
+    y: Lines of Code
+    bar: ["v0.0.1", "v0.1.0-alpha", "v0.1.1", "v0.2.0", "v1.0.0"]
+    values: [500, 1200, 1500, 2500, 3500]
+```
 
 ### Code Metrics
 
@@ -177,6 +188,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ---
 
 ## 🎯 Roadmap
+
+```mermaid
+gantt
+    title Vocal Range Analyzer Development Roadmap
+    dateFormat  YYYY-MM-DD
+    section MVP Phase
+    v0.1.0-alpha   :a1, 2026-04-10, 1d
+    v0.1.1         :a2, 2026-04-15, 1d
+    section Feature Phase
+    v0.2.0         :a3, 2026-05-01, 1d
+    v0.3.0         :a4, 2026-06-01, 1d
+    section Cloud Phase
+    v0.4.0         :a5, 2026-07-15, 1d
+    section Production
+    v1.0.0         :a6, 2026-09-01, 1d
+```
 
 For detailed release plans, see [TODO.md](TODO.md)
 
@@ -221,5 +248,5 @@ Alpha/beta versions use the format: `MAJOR.MINOR.PATCH-ALPHA.BUILD`
 
 *"Every note counts, every change matters."*
 
-*Maintained by: Vocal Range Analyzer Team*
+*Maintained by: eng-james-o*
 *Last updated: 2026-04-10*

@@ -2,12 +2,54 @@
 
 *Last Updated: 2026-04-10*
 *Current Version: 0.1.0-alpha*
+*Author: eng-james-o*
 
 ---
 
 ## 🎯 Vision Statement
 
+```mermaid
+mindmap
+  root((Vocal Range Analyzer))
+    Mission
+      Accurate pitch detection
+      Intuitive UI
+      Musician-friendly
+    Goals
+      Help singers understand their voice
+      Track vocal progress
+      Optimize song keys
+      Improve technique
+    Target Users
+      Vocal Students
+      Vocal Teachers
+      Choral Groups
+      Gigging Musicians
+      Composers
+```
+
 To create the most accurate, intuitive, and musician-friendly vocal range analyzer that helps singers of all levels understand, track, and optimize their vocal capabilities.
+
+---
+
+## 🗺️ Release Roadmap
+
+```mermaid
+gantt
+    title Vocal Range Analyzer Release Timeline
+    dateFormat  YYYY-MM-DD
+    section MVP
+    v0.1.0-alpha   :a1, 2026-04-10, 1d
+    v0.1.1         :a2, 2026-04-15, 1d
+    section Song Library
+    v0.2.0         :a3, 2026-05-01, 1d
+    section Advanced Features
+    v0.3.0         :a4, 2026-06-01, 1d
+    section Cloud & Mobile
+    v0.4.0         :a5, 2026-07-15, 1d
+    section Production
+    v1.0.0         :a6, 2026-09-01, 1d
+```
 
 ---
 

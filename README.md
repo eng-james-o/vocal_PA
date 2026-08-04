@@ -114,35 +114,46 @@ Our documentation is organized into specialized guides for different needs:
 
 ## 🏗️ Architecture
 
+```mermaid
+graph TD
+    A[main.py] --> B[CoreBridge]
+    B --> C[AudioWorker]
+    B --> D[AudioCapture]
+    B --> E[PitchDetector]
+    B --> F[NoteConverter]
+    B --> G[RangeTracker]
+    B --> H[KeyAdvisor]
+    
+    C --> D
+    C --> E
+    E --> F
+    F --> G
+    G --> H
+    
+    B --> I[QML UI]
+    I --> J[AnalyzerPage]
+    J --> K[PitchDisplay]
+    J --> L[RangeDisplay]
+    J --> M[GainMeter]
+    J --> N[TonicControls]
+    
+    style A fill:#f9f,stroke:#333
+    style B fill:#bbf,stroke:#333
+    style C fill:#9f9,stroke:#333
+    style I fill:#f96,stroke:#333
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                      Vocal Range Analyzer                      │
-├─────────────────────────────────────────────────────────────┤
-│                                                                  │
-│  ┌──────────────┐    ┌──────────────┐    ┌──────────────┐   │
-│  │   main.py    │    │   core/      │    │   ui/        │   │
-│  │  (Entry)     │───▶│  (Processing)│───▶│  (QML)       │   │
-│  └──────────────┘    └──────────────┘    └──────────────┘   │
-│           │                   │                   │              │
-│           │        ┌──────────────────────────┐    │              │
-│           │        │   AudioCapture            │    │              │
-│           │        │   PitchDetector (YIN)     │    │              │
-│           │        │   NoteConverter           │    │              │
-│           │        │   RangeTracker            │    │              │
-│           │        │   KeyAdvisor              │    │              │
-│           │        └──────────────────────────┘    │              │
-│           │                   │                   │              │
-│           │        ┌──────────────────────────┐    │              │
-│           │        │   models/                  │    │              │
-│           │        │   VocalRange              │    │              │
-│           │        │   SolfaResult              │    │              │
-│           │        │   KeyRecommendation        │    │              │
-│           │        └──────────────────────────┘    │              │
-│           │                                          │              │
-│           └──────────────────────────────────────────┘              │
-│                                                                  │
-└─────────────────────────────────────────────────────────────┘
-```
+
+### Core Components
+
+| Component | Description | Technologies |
+|-----------|-------------|--------------|
+| **Audio Capture** | Real-time audio input streaming | sounddevice, PortAudio |
+| **Pitch Detector** | Fundamental frequency detection | YIN algorithm, librosa |
+| **Note Converter** | Frequency to musical notation | librosa, numpy |
+| **Range Tracker** | Vocal range boundary tracking | Statistical filtering |
+| **Key Advisor** | Optimal key recommendation | Music theory algorithms |
+| **UI Bridge** | Qt/Python to QML communication | PySide6, Qt |
+| **UI Components** | User interface | QML, Qt Quick |
 
 ### Core Components
 
@@ -312,7 +323,7 @@ SOFTWARE.
 - **librosa team**: For the excellent audio analysis library
 - **Qt Project**: For the powerful cross-platform framework
 - **Python Software Foundation**: For the amazing Python language
-- **All Contributors**: For making this project better
+- **Author**: [eng-james-o](https://github.com/eng-james-o)
 
 ---
 
@@ -323,6 +334,7 @@ SOFTWARE.
 - **GitHub Discussions**: [Open a discussion](https://github.com/eng-james-o/vocal_PA/discussions)
 - **Issues**: [Report a bug](https://github.com/eng-james-o/vocal_PA/issues)
 - **Pull Requests**: [Submit a PR](https://github.com/eng-james-o/vocal_PA/pulls)
+- **Author**: [eng-james-o](https://github.com/eng-james-o)
 
 ### Resources
 
@@ -341,6 +353,21 @@ SOFTWARE.
 
 ## 📅 Release Timeline
 
+```mermaid
+gantt
+    title Vocal Range Analyzer Release Roadmap
+    dateFormat  YYYY-MM-DD
+    section MVP
+    v0.1.0-alpha   :a1, 2026-04-10, 1d
+    v0.1.1         :a2, 2026-04-15, 1d
+    section Features
+    v0.2.0         :a3, 2026-05-01, 1d
+    v0.3.0         :a4, 2026-06-01, 1d
+    v0.4.0         :a5, 2026-07-15, 1d
+    section Production
+    v1.0.0         :a6, 2026-09-01, 1d
+```
+
 | Version | Date | Status |
 |---------|------|--------|
 | v0.0.1 | 2026-03-25 | Pre-alpha |
@@ -357,6 +384,6 @@ SOFTWARE.
 
 ---
 
-© 2026 Vocal Range Analyzer Contributors
+© 2026 eng-james-o
 
 *Built with ❤️ for singers everywhere*

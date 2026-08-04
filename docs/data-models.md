@@ -1,5 +1,8 @@
 # Data Models & System Architecture
 
+*Author: eng-james-o*
+*Last Updated: 2026-04-10*
+
 This document details the core data structures and interaction patterns used in the Vocal Range Analyzer.
 
 ## 1. Core Data Models

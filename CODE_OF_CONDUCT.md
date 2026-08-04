@@ -66,4 +66,5 @@ For answers to common questions about this code of conduct, see its FAQ at [http
 
 *We are committed to making participation in this project a harassment-free experience for everyone.*
 
+*Author: eng-james-o*
 *Last updated: 2026-04-10*

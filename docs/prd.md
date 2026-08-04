@@ -1,5 +1,8 @@
 # Product Requirements Document (PRD) - Vocal Range Analyzer
 
+*Author: eng-james-o*
+*Last Updated: 2026-04-10*
+
 ## 1. Executive Summary
 **Vocal Range Analyzer** is a specialized tool designed for vocalists to scientifically measure, track, and optimize their musical performance based on their physiological capabilities. It translates raw audio data into actionable musical insights using industry-standard algorithms.
 

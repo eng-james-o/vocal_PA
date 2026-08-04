@@ -25,6 +25,37 @@ We're excited to have you here! Whether you're a developer, designer, tester, or
 
 ---
 
+## 🏗️ Project Architecture
+
+```mermaid
+graph TD
+    A[User Voice] --> B[Microphone]
+    B --> C[AudioCapture]
+    C --> D[AudioWorker]
+    D --> E[PitchDetector]
+    E --> F[NoteConverter]
+    F --> G[RangeTracker]
+    F --> H[KeyAdvisor]
+    G --> I[VocalRange Model]
+    H --> J[KeyRecommendation Model]
+    
+    D --> K[CoreBridge]
+    K --> L[QML UI]
+    L --> M[AnalyzerPage]
+    M --> N[PitchDisplay]
+    M --> O[RangeDisplay]
+    M --> P[GainMeter]
+    M --> Q[TonicControls]
+    
+    style A fill:#f9f,stroke:#333
+    style B fill:#bbf,stroke:#333
+    style C fill:#9f9,stroke:#333
+    style K fill:#f96,stroke:#333
+    style L fill:#f96,stroke:#333
+```
+
+---
+
 ## 🤝 Code of Conduct
 
 We are committed to providing a friendly, safe, and welcoming environment for all, regardless of gender, sexual orientation, disability, ethnicity, religion, or similar personal characteristic.
@@ -141,8 +172,55 @@ black core/ --check
 
 ## 🗂️ Project Structure
 
+```mermaid
+graph TD
+    A[vocal_PA/] --> B[core/]
+    A --> C[models/]
+    A --> D[ui/]
+    A --> E[utils/]
+    A --> F[docs/]
+    A --> G[tests/]
+    A --> H[.github/]
+    
+    B --> B1[audio_capture.py]
+    B --> B2[bridge.py]
+    B --> B3[key_advisor.py]
+    B --> B4[note_converter.py]
+    B --> B5[pitch_detector.py]
+    B --> B6[range_tracker.py]
+    
+    C --> C1[vocal_range.py]
+    C --> C2[solfa_result.py]
+    C --> C3[key_recommendation.py]
+    
+    D --> D1[components/]
+    D --> D2[pages/]
+    D --> D3[Style.qml]
+    D --> D4[main.qml]
+    
+    D1 --> D1a[GainMeter.qml]
+    D1 --> D1b[PitchDisplay.qml]
+    D1 --> D1c[RangeDisplay.qml]
+    D1 --> D1d[TonicControls.qml]
+    
+    D2 --> D2a[AnalyzerPage.qml]
+    
+    E --> E1[constants.py]
+    
+    F --> F1[*.md files]
+    
+    G --> G1[unit/]
+    G --> G2[integration/]
+    
+    H --> H1[workflows/]
+    
+    style A fill:#f9f,stroke:#333
+    style B fill:#bbf,stroke:#333
+    style C fill:#9f9,stroke:#333
+    style D fill:#f96,stroke:#333
 ```
-vocal_PA/
+
+
 ├── core/                      # Core processing logic
 │   ├── __init__.py
 │   ├── audio_capture.py       # Audio input streaming
@@ -663,4 +741,4 @@ Thank you for taking the time to contribute to Vocal Range Analyzer! Your contri
 ---
 
 *Last updated: 2026-04-10*
-*Maintained by: Vocal Range Analyzer Team*
+*Maintained by: eng-james-o*
