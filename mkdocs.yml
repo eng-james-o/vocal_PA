@@ -1,0 +1,140 @@
+# MkDocs configuration for Vocal Range Analyzer
+# See: https://www.mkdocs.org/user-guide/configuration/
+
+site_name: Vocal Range Analyzer
+site_description: A powerful Python application for vocalists to scientifically measure their vocal range
+site_author: Vocal Range Analyzer Contributors
+site_url: https://github.com/eng-james-o/vocal_PA
+
+# Repository
+repo_name: eng-james-o/vocal_PA
+repo_url: https://github.com/eng-james-o/vocal_PA
+edit_uri: edit/main/docs/
+
+# Navigation
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Quick Start: user-workflow.md
+      - Installation: installation.md
+  - User Guide:
+      - User Workflows: user-workflow.md
+      - Troubleshooting: troubleshooting.md
+  - Developer Guide:
+      - Architecture: prd.md
+      - Data Models: data-models.md
+      - API Reference: api.md
+      - Code Review: REVIEW_AND_OPTIMIZATIONS.md
+      - Contributing: CONTRIBUTING.md
+  - Project:
+      - Roadmap: ../TODO.md
+      - Changelog: ../CHANGELOG.md
+      - License: ../LICENSE
+      - Code of Conduct: ../CODE_OF_CONDUCT.md
+
+# Theme
+theme:
+  name: material
+  language: en
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: blue
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+  icon:
+    repo: fontawesome/brands/github
+    edit: material/pencil
+    view: material/eye
+
+# Plugins
+plugins:
+  - search
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+# Extensions
+markdown_extensions:
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.superfences:
+      custom_fence: true
+      preserve_tabs: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+      baselevel: 1
+
+# Customization
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/eng-james-o/vocal_PA
+    - icon: fontawesome/brands/python
+      link: https://www.python.org/
+    - icon: fontawesome/brands/qt
+      link: https://www.qt.io/
+
+  version:
+    provider: mike
+
+# Build
+use_directory_urls: true
+strict: true
+
+# Analytics (optional, uncomment when ready)
+# google_analytics:
+#   - UA-XXXXXXXX-X
+#   - auto

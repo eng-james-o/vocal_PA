@@ -1,0 +1,97 @@
+# Pre-commit hooks configuration for Vocal Range Analyzer
+# See https://pre-commit.com for more information
+
+repos:
+  # Remove trailing whitespace
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+        args: ['--maxkb=1000']
+      - id: check-merge-conflict
+      - id: check-case-conflict
+      - id: check-docstring-first
+      - id: debug-statements
+
+  # Python formatting
+  - repo: https://github.com/psf/black
+    rev: 23.9.1
+    hooks:
+      - id: black
+        language_version: python3.9
+
+  # Python import sorting
+  - repo: https://github.com/pycqa/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort
+        args: [--profile=black, --line-length=88]
+
+  # Python linting
+  - repo: https://github.com/pycqa/flake8
+    rev: 6.1.0
+    hooks:
+      - id: flake8
+        additional_dependencies: [flake8-black>=0.3.6]
+
+  # Type checking
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.5.0
+    hooks:
+      - id: mypy
+        args: [--strict, --python-version=3.9, --ignore-missing-imports]
+        additional_dependencies: [types-PySide6, types-numpy]
+        exclude: ^tests/|^docs/
+
+  # Markdown linting
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.35.0
+    hooks:
+      - id: markdownlint
+        args: [--disable=MD013, --disable=MD033]  # Disable line length and inline HTML
+
+  # Shell script linting
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.9.0.5
+    hooks:
+      - id: shellcheck
+
+  # YAML linting
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.30.0
+    hooks:
+      - id: yamllint
+        args: [--strict]
+
+  # Detect secrets
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.4.0
+    hooks:
+      - id: detect-secrets
+        args: ['--baseline', '.secrets.baseline']
+        exclude: ^tests/fixtures/|^\.git/
+
+  # Check for common Python issues
+  - repo: https://github.com/pre-commit/pygrep-hooks
+    rev: v1.10.0
+    hooks:
+      - id: python-check-blanket-noqa
+      - id: python-check-mock-methods
+      - id: python-no-eval
+      - id: python-no-log-warn
+      - id: rst-backticks
+      - id: text-unicode-punctuation
+
+  # Auto-generate .secrets.baseline
+  - repo: local
+    hooks:
+      - id: generate-secrets-baseline
+        name: Generate secrets baseline
+        entry: bash -c 'detect-secrets scan --baseline .secrets.baseline > /dev/null 2>&1 || true'
+        language: system
+        pass_filenames: true
+        files: ''
